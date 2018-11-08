@@ -1,0 +1,16 @@
+1.Etats-Unis -> Vert moche
+2.Russie     -> Rouge
+3.Union Euro -> Bleu foncé
+4.Japon      -> Bleu clair
+5.Corrée Nord-> Orange
+6.Chine      -> Jaune
+7.Inde       -> Vert clair
+8.Bresil     -> Bleu moyen
+9.Amériq Lat.-> Marron
+10.Afric Sud -> Vert fluo
+11.Oceanie   -> Violet
+12.Phillipine-> Bleu-Violet
+13.Daech     -> Marron Foncé
+14.Afric Cent-> Gris
+15.Afric Nord-> Rose
+16.Musulmans -> Violet moche

@@ -1,0 +1,114 @@
+Map en Tore(donut) case de environ 5mm, taille par defaut 50x30 cases --> taille modifiable
+8 civ par defaut--> modifiable
+
+génération de la map:
+sinon:
+ - Environnement,Climat rd 0/9 a voir (si rd=0==> case inutilisable)
+ - Ressources:
+ 	- alimentaires random plus climat  (AL) rd0/9
+ 	- économiques et matériels random  (EEM) rd0/9
+SC= score civilisation : indice sur tt les facteurs.
+nbSC = nb soldats par case (frontières !): c'est nbsoldatstotal/nb case frontière
+Temps(chaque actualisation de la map)
+
+Facteurs important:
+Critères:			Au moment de la génération:			Pendant le prgm(est influencé par...):
+-population(civile)				1 					économie,culture,science,nourriture/ok
+-production					0					population,bonheur,armée,science/EEMok
+-économie(argent, biens)			0					production,armée,politique/EEM
+-influence					0					politique,population,économie,armée/
+-bonheur					10(climat peut le baisser)		politique,économie,nourriture,science,armée/ok
+-culture					0					bonheur,education/
+-Armée						0					population,économie,science,politique/
+-Education					pol+1					economie,politique/ok
+-Science					0					education/ok
+-Nourriture					AL					production/ALok
+-Politique					rd 0à9					bonheur,population,(random armée ou population),culture/
+
+
+Conditions:
+
+prise d'une case:bonne économie et production ==>EEM/nb population par case élevé, nourriture faible.==>AL
+
+déclenchement d'une guerre:politiques différentes ou de type militaire + bonne armée(pour celle qui déclenche) + (peu d'influence l'une des deux)
++ mauvaise SC (ou bon si politique contre celui attaqué)      +AU MOINS UN PT DE CONTACT
+==> boost de science (random)
+
+arret d'une guerre: si une civilisation est anéantie ou : facteur déclencheur n'existe plus
+
+envahissement d'une case:si deux cases frontières cote à cote ==> nbSC VS nbSC +science
+le perdant: se fait envahir la case ==>perd tt les soldats
+le gagnant: envahit la case==> perd le nbSC ennemi
+
+incitaion de y a x pour attaquer z:
+influence de y sur x élvée + guerre de y sur z
+
+fusion de deux civilisations:un pt de contact+ influence + politique 7à10 pr les 2 + bon SC pr les 2
+==> fusion de tt les paramètres
+
+changement de politique:population élevée+ bonheur bas
+réduction politique:prb de moyens(économie production)
+augmentation politique: prb social(bouf, education)
+	politique : 0=Dictature // 9 =République
+
+
+
+//0->R	1->G	2->B
+3->population
+4->production
+5->économie
+6->influence
+7->bonheur
+8->culture
+9->armée
+10->éducation
+11->science
+12->nourriture
+13->politique
+14->climat total
+15->AL total
+16->EEM total
+17->cases possédées
+18->1=décès		NB:int[0][x]->case n'appartenant à personne
+
+
+SCENARIOS:
+
+scénario1: demographie forte (1pop = 1 nour)
+scénario2: demographie faible (1pop = 3 nourr)
+scénario3: science décuplée (science * 10)
+scénario4: science réduite (science / 10)
+scénario5: guerres "boucherie" (a = 1) 
+scénario6: dépression collective (bonheur -15) 
+scénario7: crise économique (economie/10)
+scénario 8: fusions impossibles
+scénario 9: intolérance des peuples (relations depart = 1)
+scénario 10: mauvais climat (rd * 3 au lieu de 7)
+
+
+CIVILISATIONS TERRE:
+numéro nom R G B population culture science politique politiqueexten
+3 EUROPE x x x X 9 X 9 2
+1 USACANADA x x x X 9 X 8 5
+2 RUSSIE x x x X 8 X 6 8
+6 CHINE x x x X 8 X 4 5
+7 INDE x x x X 8 X 7 3
+8 BRESIL x x x X 8 X 7 3
+10 AFRIQUESUD x x x X 8 X 7 2
+14 AFRIQUENOIRE x x x X 7 X 4 3
+15 AFRIQUEMUSULMANE x x x X 7 X 5 3
+16 PAYSMUSULMAN x x x X 7 X 4 4
+9 AMERIQUESUD x x x X 7 X 7 3
+11 AUSTRALIE x x x X 9 X 8 3
+12 OCEANIE x x x X 7 X 7 3
+4 JAPON x x x X 9 X 9 2
+5 COREENORD x x x X 4 X 0 7
+13 DAECH x x x X 1 X 0 9
+
+
+peste:
+0:rien
+1: viens d'etre contaminé
+2: contamine autour
+3: a tué la pop de la case
+4 : stagne ici

@@ -1,0 +1,4 @@
+-côtes               : +1
+-PIB / hab           : +1 -> +4
+-ressourecs minières : +1 par ressource
+(or, uranium, pétrole, charbon)

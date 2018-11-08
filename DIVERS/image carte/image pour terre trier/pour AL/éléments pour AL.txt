@@ -1,0 +1,3 @@
+-côtes              : +2
+biodiversité animal : +3
+	    végétale: +4
